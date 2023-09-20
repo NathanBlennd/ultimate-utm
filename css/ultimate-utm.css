@@ -1,0 +1,7 @@
+.gfield--type-utm_campaign,
+.gfield--type-utm_content,
+.gfield--type-utm_medium,
+.gfield--type-utm_source,
+.gfield--type-utm_term {
+    display: none;
+}
