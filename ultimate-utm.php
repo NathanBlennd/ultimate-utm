@@ -103,9 +103,9 @@ add_filter( 'gform_admin_pre_render', __NAMESPACE__ . '\add_utm_fields' );
  */
 function wp_enqueue_scripts() {
 	wp_register_script( 'cookie', plugin_dir_url( __FILE__ ) . '/js/cookie.js' );
-	wp_enqueue_script( 'ultimate-utm', plugin_dir_url( __FILE__ ) . '/js/ultimate-utm.js', [ 'jquery', 'cookie' ], '1.0.0', true );
+	wp_enqueue_script( 'ultimate-utm', plugin_dir_url( __FILE__ ) . '/js/ultimate-utm.js', [ 'cookie' ], '1.0.0', true );
 	wp_enqueue_style( 'ultimate-utm', plugin_dir_url( __FILE__ ) . '/css/ultimate-utm.css', '1.0.0' );
-	wp_enqueue_script( 'ultimate-utm-admin', plugin_dir_url( __FILE__ ) . '/js/ultimate-utm-admin.js', [ 'jquery' ], '1.0.0', true );
+	wp_enqueue_script( 'ultimate-utm-admin', plugin_dir_url( __FILE__ ) . '/js/ultimate-utm-admin.js', [], '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\wp_enqueue_scripts' );
 
