@@ -23,16 +23,16 @@ require __DIR__ . '/includes/GF_Field_UTM_Term.php';
  * 
  */
 function get_types() : array {
-    return [
-        'utm_campaign' => [
+	return [
+		'utm_campaign' => [
 			'id' => 1000,
 			'label' => 'UTM Campaign',
 		],
-        'utm_content' => [
+		'utm_content' => [
 			'id' => 1001,
 			'label' => 'UTM Content',
 		],
-        'utm_medium' => [
+		'utm_medium' => [
 			'id' => 1002,
 			'label' => 'UTM Medium',
 		],
@@ -44,7 +44,7 @@ function get_types() : array {
 			'id' => 1004,
 			'label' => 'UTM Source',
 		],
-        'utm_term' => [
+		'utm_term' => [
 			'id' => 1005,
 			'label' => 'UTM Term',
 		],
@@ -103,9 +103,9 @@ add_filter( 'gform_admin_pre_render', __NAMESPACE__ . '\add_utm_fields' );
  */
 function wp_enqueue_scripts() {
 	wp_register_script( 'cookie', plugin_dir_url( __FILE__ ) . '/js/cookie.js' );
-    wp_enqueue_script( 'ultimate-utm', plugin_dir_url( __FILE__ ) . '/js/ultimate-utm.js', [ 'jquery', 'cookie' ], '1.0.0', true );
-    wp_enqueue_style( 'ultimate-utm', plugin_dir_url( __FILE__ ) . '/css/ultimate-utm.css', '1.0.0' );
-    wp_enqueue_script( 'ultimate-utm-admin', plugin_dir_url( __FILE__ ) . '/js/ultimate-utm-admin.js', [ 'jquery' ], '1.0.0', true );
+	wp_enqueue_script( 'ultimate-utm', plugin_dir_url( __FILE__ ) . '/js/ultimate-utm.js', [ 'jquery', 'cookie' ], '1.0.0', true );
+	wp_enqueue_style( 'ultimate-utm', plugin_dir_url( __FILE__ ) . '/css/ultimate-utm.css', '1.0.0' );
+	wp_enqueue_script( 'ultimate-utm-admin', plugin_dir_url( __FILE__ ) . '/js/ultimate-utm-admin.js', [ 'jquery' ], '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\wp_enqueue_scripts' );
 
@@ -113,7 +113,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\wp_enqueue_scripts' );
  * 
  */
 function admin_enqueue_scripts() {
-    wp_enqueue_style( 'ultimate-utm', plugin_dir_url( __FILE__ ) . '/css/ultimate-utm.css', '1.0.0' );
+	wp_enqueue_style( 'ultimate-utm', plugin_dir_url( __FILE__ ) . '/css/ultimate-utm.css', '1.0.0' );
 }
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\wp_enqueue_scripts' );
 
