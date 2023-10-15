@@ -1,6 +1,6 @@
 <?php
 declare( strict_types = 1 );
-namespace blenndiris\ultimate_utm;
+namespace Atmozorg\UltimateUtm\GravityFormFields;
 
 class GF_Field_UTM_Campaign extends \GF_Field_Hidden {
 	public $type = 'utm_campaign';

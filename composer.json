@@ -1,0 +1,11 @@
+{
+    "name": "atmozorg/ultimate-utm",
+    "description": "Automatically capture UTM parameters in WordPress forms.",
+    "authors": [
+        {
+            "name": "Nathan Johnson",
+            "email": "nathan@atmoz.org"
+        }
+    ],
+    "require": {}
+}

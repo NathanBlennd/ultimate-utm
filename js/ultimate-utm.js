@@ -11,7 +11,7 @@
 		'utm_content',
 		'utm_campaign',
 	];
-	
+
 	terms.forEach(function(v) {
 		if( undefined === vars[v] ) {
 			vars[v] = '';
@@ -23,7 +23,8 @@
 
 		vars[v] = Cookies.get(v);
 
-		document.querySelectorAll('input.'+v).forEach((item) => {
+		let selector = 'input.'+v+',input[name="'+v+'"]'
+		document.querySelectorAll(selector).forEach((item) => {
 			if( vars[v] !== undefined ) {
 				item.value = vars[v];
 			}
