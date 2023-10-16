@@ -12,9 +12,16 @@
 		'utm_campaign',
 	];
 
+	const url = new URL(window.location.href);
+	const params = new URLSearchParams(window.location.search)
+
 	terms.forEach(function(v) {
 		if( undefined === vars[v] ) {
 			vars[v] = '';
+		}
+
+		if (typeof URLSearchParams !== 'undefined') {
+			params.delete(v)
 		}
 
 		if( vars[v] != '' ) {
@@ -31,5 +38,7 @@
 		});
 
 	});
-
+	let url_string = `${url.origin}${url.pathname}?${params}`;
+	if( url_string.endsWith("?") ) { url_string = url_string.substring( 0, url_string.length-1 ); }
+	window.history.replaceState({}, document.title, url_string);
 })();
