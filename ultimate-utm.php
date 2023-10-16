@@ -45,5 +45,17 @@ function plugins_loaded() {
 	if( class_exists( 'WPForms' ) ) {
 		( new WPForms() )->init();
 	}
+
+	if( class_exists( 'Forminator' ) ) {
+		require __DIR__ . '/includes/Forminator.php';
+		$forminator = new Forminator();
+		$forminator->init();
+	}
+
+	if( class_exists( 'Ninja_Forms' ) ) {
+		require __DIR__ . '/includes/Ninja_Forms.php';
+		$Ninja_Forms = new Ninja_Forms();
+		$Ninja_Forms->init();
+	}
 }
 add_action( 'plugins_loaded', __NAMESPACE__ . '\plugins_loaded' );
