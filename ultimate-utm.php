@@ -49,5 +49,11 @@ function plugins_loaded() {
 		$contact_form_7 = new Contact_Form_7();
 		$contact_form_7->init();
 	}
+
+	if( class_exists( 'WPForms' ) ) {
+		require __DIR__ . '/includes/WPForms.php';
+		$wpforms = new WPForms();
+		$wpforms->init();
+	}
 }
 add_action( 'plugins_loaded', __NAMESPACE__ . '\plugins_loaded' );
