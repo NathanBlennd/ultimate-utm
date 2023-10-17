@@ -1,4 +1,17 @@
 (function() {
+
+	const Cookies = {
+		get: function(k:string) {
+			return document.cookie
+				.split("; ")
+				.find((row) => row.startsWith(`${k}=`))
+				?.split("=")[1];
+		},
+		set: function(k:string,v:string,e) {
+			let m = 86400 * e.expires;
+			document.cookie = `${k}=${v}; max-age=${m}; Secure`;
+		}
+	}
     
 	const terms = [
 		'utm_source',

@@ -1,4 +1,16 @@
 (function () {
+    const Cookies = {
+        get: function (k) {
+            var _a;
+            return (_a = document.cookie
+                .split("; ")
+                .find((row) => row.startsWith(`${k}=`))) === null || _a === void 0 ? void 0 : _a.split("=")[1];
+        },
+        set: function (k, v, e) {
+            let m = 86400 * e.expires;
+            document.cookie = `${k}=${v}; max-age=${m}; Secure`;
+        }
+    };
     const terms = [
         'utm_source',
         'utm_medium',
