@@ -6,7 +6,7 @@
 		[data-type="utm_source"],
 		[data-type="utm_term"]`;
 
-	document.querySelectorAll(selector).forEach((item) => {
+	document.querySelectorAll(selector).forEach((item : HTMLElement) => {
 		item.parentElement.style.display = 'none';
 	});
 })();

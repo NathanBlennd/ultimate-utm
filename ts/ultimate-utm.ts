@@ -1,9 +1,5 @@
 (function() {
-	var vars = {};
-	window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function( m, key, value ) {
-		vars[key] = value;
-	});
-
+    
 	const terms = [
 		'utm_source',
 		'utm_medium',
@@ -13,14 +9,19 @@
 	];
 
 	const url = new URL(window.location.href);
-	const params = new URLSearchParams(window.location.search)
+	const params = new URLSearchParams(window.location.search);
+	
+	var vars = {};
+	for( const [key, value] of params.entries() ) {
+		vars[key] = value;
+	}
 
 	terms.forEach(function(v) {
 		if( undefined === vars[v] ) {
 			vars[v] = '';
 		}
 
-		if (typeof URLSearchParams !== 'undefined') {
+		if( typeof URLSearchParams !== 'undefined' ) {
 			params.delete(v)
 		}
 
@@ -31,14 +32,16 @@
 		vars[v] = Cookies.get(v);
 
 		let selector = 'input.'+v+',input[name="'+v+'"]'
-		document.querySelectorAll(selector).forEach((item) => {
+		document.querySelectorAll(selector).forEach((item : HTMLInputElement) => {
 			if( vars[v] !== undefined ) {
 				item.value = vars[v];
 			}
 		});
 
 	});
-	let url_string = `${url.origin}${url.pathname}?${params}`;
-	if( url_string.endsWith("?") ) { url_string = url_string.substring( 0, url_string.length-1 ); }
+	let url_string : string = `${url.origin}${url.pathname}?${params}`;
+	if( url_string.endsWith("?") ) { 
+		url_string = url_string.substring( 0, url_string.length-1 );
+	}
 	window.history.replaceState({}, document.title, url_string);
 })();

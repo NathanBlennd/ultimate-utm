@@ -19,8 +19,8 @@ namespace Atmozorg\UltimateUtm;
  */
 function init() {
 	wp_register_script( 'cookie', plugin_dir_url( __FILE__ ) . '/js/cookie.js' );
-	wp_register_script( 'ultimate-utm', plugin_dir_url( __FILE__ ) . '/js/ultimate-utm.js', [ 'cookie' ], '1.0.0', true );
-	wp_register_script( 'ultimate-utm-gravity-forms-admin', plugin_dir_url( __FILE__ ) . '/js/ultimate-utm-gravity-forms-admin.js', [], '1.0.0', true );
+	wp_register_script( 'ultimate-utm', plugin_dir_url( __FILE__ ) . 'dist/ultimate-utm.js', [ 'cookie' ], '1.0.0', true );
+	wp_register_script( 'ultimate-utm-gravity-forms-admin', plugin_dir_url( __FILE__ ) . 'dist/ultimate-utm-gravity-forms-admin.js', [], '1.0.0', true );
 
 	wp_register_style( 'ultimate-utm-gravity-forms', plugin_dir_url( __FILE__ ) . '/css/ultimate-utm-gravity-forms.css', '1.0.0' );
 }
