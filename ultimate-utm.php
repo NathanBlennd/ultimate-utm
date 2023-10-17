@@ -15,6 +15,7 @@
 declare( strict_types = 1 );
 namespace Atmozorg\UltimateUtm;
 
+require __DIR__ . '/vendor/autoload.php';
 
 /**
  * Register styles and scripts
@@ -32,29 +33,17 @@ add_action( 'init', __NAMESPACE__ . '\init' );
  * Load the necessary plugin classes
  */
 function plugins_loaded() {
-	require __DIR__ . '/includes/Form.php';
 
 	if( class_exists( 'GFForms' ) ) {
-		require __DIR__ . '/includes/Gravity_Forms.php';
-		require __DIR__ . '/includes/GravityFormFields/GF_Field_UTM_Campaign.php';
-		require __DIR__ . '/includes/GravityFormFields/GF_Field_UTM_Content.php';
-		require __DIR__ . '/includes/GravityFormFields/GF_Field_UTM_Medium.php';
-		require __DIR__ . '/includes/GravityFormFields/GF_Field_UTM_Source.php';
-		require __DIR__ . '/includes/GravityFormFields/GF_Field_UTM_Term.php';
-		$gravity_forms = new Gravity_Forms();
-		$gravity_forms->init();
+		( new Gravity_Forms() )->init();
 	}
 
 	if( class_exists( 'WPCF7' ) ) {
-		require __DIR__ . '/includes/Contact_Form_7.php';
-		$contact_form_7 = new Contact_Form_7();
-		$contact_form_7->init();
+		( new Contact_Form_7() )->init();
 	}
 
 	if( class_exists( 'WPForms' ) ) {
-		require __DIR__ . '/includes/WPForms.php';
-		$wpforms = new WPForms();
-		$wpforms->init();
+		( new WPForms() )->init();
 	}
 }
 add_action( 'plugins_loaded', __NAMESPACE__ . '\plugins_loaded' );

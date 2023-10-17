@@ -10,7 +10,7 @@ abstract class Form {
 
 	/**
 	 *
-     */
+	 */
 	public function init() {
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
